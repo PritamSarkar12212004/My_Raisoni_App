@@ -7,13 +7,18 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Feather from "@expo/vector-icons/Feather";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
+import useExamMainDownload from "@/src/hooks/downloadHooks/useExamMainDownload";
 
 const ExamDox = () => {
+  const { exmamMainDownload } = useExamMainDownload();
   const [data, setdata] = useState([]);
   const { apiCaller } = useExamDownloadHook();
   useEffect(() => {
     apiCaller({ data, setdata });
   }, []);
+  const downloaderFunc = (item: any) => {
+    exmamMainDownload({ item: item });
+  };
   return (
     <SafeAreaView className="w-full h-full bg-white">
       <View className="w-full px-2 py-2">
@@ -55,7 +60,11 @@ const ExamDox = () => {
                         {item.dataList[0].sessionId}
                       </Text>
                     </Text>
-                    <TouchableOpacity className="w-16 h-16  bg-white rounded-full flex items-center justify-center">
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => downloaderFunc(item)}
+                      className="w-16 h-16  bg-white rounded-full flex items-center justify-center"
+                    >
                       <Feather name="download-cloud" size={24} color="black" />
                     </TouchableOpacity>
                   </View>

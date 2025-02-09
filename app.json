@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "My-Raisoni",
+    "name": "My Raisoni",
     "slug": "My-Raisoni",
     "version": "1.5.0",
     "orientation": "portrait",
@@ -14,7 +14,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFFFFF"
       },
       "package": "com.pritam_sarkar.MyRaisoni"
     },
@@ -31,7 +31,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#FFFFFF"
         }
       ],
       [

@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 
 const useMainDataCall = () => {
   const {
-    setloader,
+    setloader ,
     setcastAndReligion,
     setcourseDetails,
     setfatherDetails,
