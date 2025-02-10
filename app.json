@@ -18,6 +18,11 @@
       },
       "package": "com.pritam_sarkar.MyRaisoni"
     },
+    "updates": {
+      "enabled": true,
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/08fa5be6-b1b4-48b3-9500-7e6b34b30d25"
+    },
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -53,6 +58,9 @@
       "eas": {
         "projectId": "08fa5be6-b1b4-48b3-9500-7e6b34b30d25"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

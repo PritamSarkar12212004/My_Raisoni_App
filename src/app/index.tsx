@@ -5,6 +5,8 @@ import LogoConstant from "../constants/LogoConstant";
 import ColorConstant from "../constants/ColorConstant";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Updates from "expo-updates";
+
 const index = () => {
   const router = useRouter();
   const cheker = async () => {
@@ -21,6 +23,19 @@ const index = () => {
   };
 
   useEffect(() => {
+    async function checkForUpdates() {
+      try {
+        const update = await Updates.checkForUpdateAsync();
+        if (update.isAvailable) {
+          await Updates.fetchUpdateAsync();
+          await Updates.reloadAsync(); // Restart app to apply update
+        }
+      } catch (error) {
+        console.log("Error checking for updates:", error);
+      }
+    }
+
+    checkForUpdates();
     setTimeout(() => {
       cheker();
     }, 1500);
