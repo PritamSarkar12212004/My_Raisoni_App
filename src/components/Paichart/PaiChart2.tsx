@@ -3,9 +3,10 @@ import { PieChart } from "react-native-gifted-charts";
 import { View, Text } from "react-native";
 import React from "react";
 
-const PaiChart2 = ({ init, fainal,title }: any) => {
+const PaiChart2 = ({ init, fainal, title }: any) => {
+  const fainalcgpa = init - fainal;
   const pieData = [
-    { value: init, color: "#F93827" },
+    { value: fainalcgpa, color: "#F93827" },
     { value: fainal, color: "#008FFF" },
   ];
 

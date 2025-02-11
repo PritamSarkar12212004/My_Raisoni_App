@@ -55,7 +55,7 @@ const index = () => {
                 />
                 <PaiChart2
                   title="Present"
-                  init={10}
+                  init={100}
                   fainal={parseFloat(attendanceDataMain.presentPerc)}
                 />
               </View>

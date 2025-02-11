@@ -5,8 +5,8 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint"
@@ -29,11 +29,15 @@
     "expo-haptics": "~14.0.1",
     "expo-linear-gradient": "~14.0.2",
     "expo-linking": "~7.0.5",
+    "expo-media-library": "~17.0.5",
+    "expo-permissions": "^14.4.0",
     "expo-router": "~4.0.17",
+    "expo-sharing": "^13.0.1",
     "expo-splash-screen": "~0.29.21",
     "expo-status-bar": "~2.0.1",
     "expo-symbols": "~0.2.2",
     "expo-system-ui": "~4.0.7",
+    "expo-updates": "~0.26.17",
     "expo-web-browser": "~14.0.2",
     "lottie-react-native": "7.1.0",
     "nativewind": "^4.1.23",
@@ -50,9 +54,8 @@
     "react-native-svg": "15.8.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "tailwindcss": "^3.4.17",
-    "expo-media-library": "~17.0.5",
-    "expo-updates": "~0.26.17"
+    "rn-fetch-blob": "^0.12.0",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

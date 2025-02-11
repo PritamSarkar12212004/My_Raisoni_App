@@ -1,23 +1,32 @@
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeadNavigation from "@/src/components/headNavigation/HeadNavigation";
+import HeadNavigation from "@/src/components/headNavigationForPdf/HeadNavigation";
 import useExamDownloadHook from "@/src/hooks/downloadHooks/useExamDownloadHook";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Feather from "@expo/vector-icons/Feather";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
 import useExamMainDownload from "@/src/hooks/downloadHooks/useExamMainDownload";
+import { useRouter } from "expo-router";
 
 const ExamDox = () => {
   const { exmamMainDownload } = useExamMainDownload();
   const [data, setdata] = useState([]);
+  const [loading, setloading] = useState(false);
   const { apiCaller } = useExamDownloadHook();
   useEffect(() => {
     apiCaller({ data, setdata });
   }, []);
   const downloaderFunc = (item: any) => {
-    exmamMainDownload({ item: item });
+    setloading(item.dataList[0].semesterId);
+    exmamMainDownload({ item: item, setloading });
   };
   return (
     <SafeAreaView className="w-full h-full bg-white">
@@ -62,10 +71,14 @@ const ExamDox = () => {
                     </Text>
                     <TouchableOpacity
                       activeOpacity={0.8}
-                      onPress={() => downloaderFunc(item)}
+                      onPress={() => (loading ? null : downloaderFunc(item))}
                       className="w-16 h-16  bg-white rounded-full flex items-center justify-center"
                     >
-                      <Feather name="download-cloud" size={24} color="black" />
+                      {loading === item.dataList[0].semesterId ? (
+                        <ActivityIndicator size="small" color="#0000ff" />
+                      ) : (
+                        <Feather name="download" size={24} color="black" />
+                      )}
                     </TouchableOpacity>
                   </View>
                 </View>

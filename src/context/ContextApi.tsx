@@ -44,8 +44,7 @@ export const ContextProvider = ({ children }: any) => {
 
   const [attendanceDataMain, setattendanceDataMain] = useState(null);
 
-  // loading bar
-
+  const [pdfValue, setpdfValue] = useState(null);
   return (
     <Context.Provider
       value={{
@@ -91,6 +90,8 @@ export const ContextProvider = ({ children }: any) => {
         setheaderName,
         attendanceDataMain,
         setattendanceDataMain,
+        pdfValue,
+        setpdfValue,
       }}
     >
       {children}

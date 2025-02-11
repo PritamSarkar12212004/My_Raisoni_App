@@ -7,13 +7,13 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeadNavigation from "@/src/components/headNavigation/HeadNavigation";
+import HeadNavigation from "@/src/components/headNavigationForPdf/HeadNavigation";
 import useFinanceDownloadHook from "../../hooks/downloadHooks/useFinanceDownloadHook";
 import Feather from "@expo/vector-icons/Feather";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
 
-const FinanceItem = ({ item }) => (
+const FinanceItem = ({ item, fuctiuon }: any) => (
   <View
     className="w-full h-52 relative py-4 px-4 flex gap-2 rounded-3xl mb-4"
     style={{
@@ -42,6 +42,7 @@ const FinanceItem = ({ item }) => (
     </View>
     {item.paymentType === "ONLINE_PAYMENT" && (
       <TouchableOpacity
+        onPress={() => fuctiuon(item)}
         activeOpacity={0.8}
         className="h-16 w-16 absolute bottom-4 right-4 bg-white rounded-full flex items-center justify-center"
       >
@@ -53,8 +54,13 @@ const FinanceItem = ({ item }) => (
 
 const FainanceDoc = () => {
   const { apiCaller } = useFinanceDownloadHook();
+
   const [data, setData] = useState([]);
   const [data2, setdata2] = useState([]);
+
+  const apiCallerDownload = (item: any) => {
+    console.log(item);
+  };
 
   useEffect(() => {
     apiCaller({ data, setData, setdata2 });
@@ -75,7 +81,9 @@ const FainanceDoc = () => {
                   showsVerticalScrollIndicator={false}
                   data={data}
                   keyExtractor={(item, index) => index.toString()}
-                  renderItem={({ item }) => <FinanceItem item={item} />}
+                  renderItem={({ item }) => (
+                    <FinanceItem item={item} fuctiuon={apiCallerDownload} />
+                  )}
                 />
               </View>
 
