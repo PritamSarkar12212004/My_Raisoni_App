@@ -1,16 +1,16 @@
-import { userContext } from "@/src/context/ContextApi";
 import AxiosInstance from "@/src/utils/axios/AxiosInstance";
+import { userContext } from "@/src/context/ContextApi";
 import { useRouter } from "expo-router";
 
 const useFainanceFainalDowqnload = () => {
   const router = useRouter();
+
   const { globaltoken, setpdfValue } = userContext();
 
-  const exmamMainDownload = async ({ item, setloading }: any) => {
-    AxiosInstance.post("/download/exam/maindownload", {
+  const FainanceDocDownloader = async ({ item, setloading }: any) => {
+    AxiosInstance.post("/download/fainace/maindownload", {
       token: globaltoken,
-      semesterId: item.dataList[0].semesterId,
-      sessionId: item.dataList[0].sessionId,
+      voucherNo: item.voucherNo,
     })
       .then((res) => {
         setpdfValue(res.data.data);
@@ -22,7 +22,7 @@ const useFainanceFainalDowqnload = () => {
         setloading(false);
       });
   };
-  return { exmamMainDownload };
+  return { FainanceDocDownloader };
 };
 
 export default useFainanceFainalDowqnload;

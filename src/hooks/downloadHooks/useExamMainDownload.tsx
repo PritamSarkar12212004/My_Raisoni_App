@@ -7,8 +7,10 @@ const useExamMainDownload = () => {
   const { globaltoken, setpdfValue } = userContext();
 
   const exmamMainDownload = async ({ item, setloading }: any) => {
-    AxiosInstance.post("/download/fainace/maindownload", {
+    AxiosInstance.post("/download/exam/maindownload", {
       token: globaltoken,
+      semesterId: item.dataList[0].semesterId,
+      sessionId: item.dataList[0].sessionId,
     })
       .then((res) => {
         setpdfValue(res.data.data);

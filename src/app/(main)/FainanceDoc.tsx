@@ -4,6 +4,7 @@ import {
   FlatList,
   TouchableOpacity,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,8 +13,9 @@ import useFinanceDownloadHook from "../../hooks/downloadHooks/useFinanceDownload
 import Feather from "@expo/vector-icons/Feather";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
+import useFainanceFainalDowqnload from "@/src/hooks/downloadHooks/useFainanceFainalDowqnload";
 
-const FinanceItem = ({ item, fuctiuon }: any) => (
+const FinanceItem = ({ item, fuctiuon, loading }: any) => (
   <View
     className="w-full h-52 relative py-4 px-4 flex gap-2 rounded-3xl mb-4"
     style={{
@@ -46,7 +48,11 @@ const FinanceItem = ({ item, fuctiuon }: any) => (
         activeOpacity={0.8}
         className="h-16 w-16 absolute bottom-4 right-4 bg-white rounded-full flex items-center justify-center"
       >
-        <Feather name="download-cloud" size={24} color="black" />
+        {loading === item ? (
+          <ActivityIndicator size="small" color="#0000ff" />
+        ) : (
+          <Feather name="download-cloud" size={24} color="black" />
+        )}
       </TouchableOpacity>
     )}
   </View>
@@ -54,12 +60,13 @@ const FinanceItem = ({ item, fuctiuon }: any) => (
 
 const FainanceDoc = () => {
   const { apiCaller } = useFinanceDownloadHook();
-
   const [data, setData] = useState([]);
   const [data2, setdata2] = useState([]);
-
+  const [loading, setloading] = useState(null);
+  const { FainanceDocDownloader } = useFainanceFainalDowqnload();
   const apiCallerDownload = (item: any) => {
-    console.log(item);
+    setloading(item);
+    FainanceDocDownloader({ item, setloading });
   };
 
   useEffect(() => {
@@ -82,7 +89,11 @@ const FainanceDoc = () => {
                   data={data}
                   keyExtractor={(item, index) => index.toString()}
                   renderItem={({ item }) => (
-                    <FinanceItem item={item} fuctiuon={apiCallerDownload} />
+                    <FinanceItem
+                      item={item}
+                      fuctiuon={apiCallerDownload}
+                      loading={loading}
+                    />
                   )}
                 />
               </View>
@@ -92,7 +103,13 @@ const FainanceDoc = () => {
                   showsVerticalScrollIndicator={false}
                   data={data2}
                   keyExtractor={(item, index) => index.toString()}
-                  renderItem={({ item }) => <FinanceItem item={item} />}
+                  renderItem={({ item }) => (
+                    <FinanceItem
+                      item={item}
+                      fuctiuon={apiCallerDownload}
+                      loading={loading}
+                    />
+                  )}
                 />
               </View>
             </ScrollView>
