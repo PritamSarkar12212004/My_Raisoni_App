@@ -35,15 +35,8 @@ const Document = () => {
               </TouchableOpacity>
             </View>
             <View className="w-full h-[80%] bg-[#7FD9B8] flex rounded-[40px] items-center justify-between">
-              <View className="w-full  pt-10 px-5 flex-row items-center justify-between ">
-                <Text className="text-3xl text-white font-semibold tracking-widest">
-                  Other
-                </Text>
-                <TouchableOpacity className="h-16 w-16 bg-white rounded-full flex items-center justify-center">
-                  <Feather name="arrow-up-right" size={24} color="black" />
-                </TouchableOpacity>
-              </View>
-              <View className="w-full h-[80%] bg-[#DD87B0] flex rounded-[40px] items-center justify-center">
+             
+              <View className="w-full h-[100%] bg-[#DD87B0] flex rounded-[40px] items-center justify-center">
                 <LottiAnimation
                   path={Animation.Wallet}
                   width={300}

@@ -20,6 +20,8 @@ const useFainanceFainalDowqnload = () => {
       .catch((err) => {
         console.log(err);
         setloading(false);
+        router.replace("/(helper)/TryAginPage");
+
       });
   };
   return { FainanceDocDownloader };

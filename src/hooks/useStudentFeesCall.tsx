@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { userContext } from "../context/ContextApi";
 import AxiosInstance from "../utils/axios/AxiosInstance";
 
@@ -13,6 +14,8 @@ const useStudentFeesCall = () => {
       })
       .catch((err) => {
         console.log(err);
+        router.replace("/(helper)/TryAginPage");
+
       });
   };
   return { ApiStudentFeesCall };

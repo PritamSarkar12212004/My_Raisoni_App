@@ -16,9 +16,9 @@ const index = () => {
     console.log(token, tokenId, tokenPass);
 
     if (JSON.parse(token) && JSON.parse(tokenId) && JSON.parse(tokenPass)) {
-      router.replace("/(auth)/AutoLoager");
+      router.replace("/(helper)/TryAginPage");
     } else {
-      router.replace("/(spalash)");
+      router.replace("/(helper)/TryAginPage");
     }
   };
 

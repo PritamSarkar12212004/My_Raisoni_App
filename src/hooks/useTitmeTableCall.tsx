@@ -1,5 +1,6 @@
 import AxiosInstance from "../utils/axios/AxiosInstance";
 import { userContext } from "../context/ContextApi";
+import { router } from "expo-router";
 
 const useTitmeTableCall = () => {
   const { globaltoken, globaluid, settimetable, setweekDetails } =
@@ -14,6 +15,8 @@ const useTitmeTableCall = () => {
       })
       .catch((err) => {
         console.log(err);
+        router.replace("/(helper)/TryAginPage");
+
       });
   };
   return { ApiTimeTableCall };

@@ -5,8 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 const useCommanCall = () => {
-  const { setloader, setglobaltoken, setglobaluid } =
-    userContext();
+  const { setloader, setglobaltoken, setglobaluid } = userContext();
   const { pass, id } = userContext();
   const passIdSaver = async () => {
     try {
@@ -33,7 +32,10 @@ const useCommanCall = () => {
       })
       .catch((err) => {
         setloader(false);
-        Alert.alert("Error", err.response.data.message);
+        Alert.alert(
+          "Error",
+          "Invalid Credentials, if you entered Incorrect credentials 5 times then ID will be Blocked"
+        );
       });
   };
   return {

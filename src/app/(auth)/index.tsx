@@ -56,7 +56,7 @@ const index = () => {
         <View className="w-full flex-auto pt-10">
           <View className="w-full">
             <Text className="text-5xl font-extrabold leading-tight">
-              <Text className=" font-extrabold text-[#7d73e6cc]"> S</Text>
+              <Text className=" font-extrabold text-[#7d73e6cc]">S</Text>
               ign in to your
             </Text>
             <Text className="text-5xl font-extrabold">account</Text>

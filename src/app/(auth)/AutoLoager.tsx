@@ -13,10 +13,8 @@ const AutoLoager = () => {
   const tokenAuthFinder = async () => {
     const idAuth = await AsyncStorage.getItem("userId");
     const passAuth = await AsyncStorage.getItem("userPass");
-    console.log(idAuth, passAuth);
     const id = (await JSON.parse(idAuth)) ? JSON.parse(idAuth) : "";
     const pass = (await JSON.parse(passAuth)) ? JSON.parse(passAuth) : "";
-
     AuthKeyFinderAuto({ id, pass, apiCall: successFun });
   };
 

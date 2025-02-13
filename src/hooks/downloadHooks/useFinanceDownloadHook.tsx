@@ -1,5 +1,6 @@
 import AxiosInstance from "@/src/utils/axios/AxiosInstance";
 import { userContext } from "@/src/context/ContextApi";
+import { router } from "expo-router";
 
 const useFinanceDownloadHook = () => {
   const { globaltoken } = userContext();
@@ -14,6 +15,8 @@ const useFinanceDownloadHook = () => {
       })
       .catch((err) => {
         console.log(err);
+        router.replace("/(helper)/TryAginPage");
+
       });
   };
   return { apiCaller };

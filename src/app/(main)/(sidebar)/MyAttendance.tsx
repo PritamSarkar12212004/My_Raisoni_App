@@ -26,14 +26,14 @@ const MyAttendance = () => {
                 <View className="w-full gap-3  rounded-[30px] p-7 shadow-[40px] backdrop-blur-sm mb-10">
                   <View className="w-full flex items-center justify-center">
                     <PaiChart
-                      init={
-                        item.attendanceCourseComponentNameInfoList[0]
-                          .numberOfPeriods
-                      }
-                      fainal={
-                        item.attendanceCourseComponentNameInfoList[0]
-                          .numberOfPresent
-                      }
+                      init={100}
+                      fainal={Math.floor(
+                        (item.attendanceCourseComponentNameInfoList[0]
+                          .numberOfPresent /
+                          item.attendanceCourseComponentNameInfoList[0]
+                            .numberOfPeriods) *
+                          100
+                      )}
                     />
                     <View className="w-full flex items-center justify-center">
                       <Text className="text-xl font-bold text-black">

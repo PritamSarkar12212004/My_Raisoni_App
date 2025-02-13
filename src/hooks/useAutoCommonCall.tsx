@@ -32,6 +32,7 @@ const useAutoCommonCall = () => {
         passIdSaver(id, pass);
       })
       .catch((err) => {
+        console.log(err)
         setloader(false);
         Alert.alert("Error", err.response.data.message);
         router.replace("/(auth)");

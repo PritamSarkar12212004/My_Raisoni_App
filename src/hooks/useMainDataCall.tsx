@@ -52,6 +52,8 @@ const useMainDataCall = () => {
       .catch((err) => {
         console.log(err);
         setloader(false);
+        router.replace("/(helper)/TryAginPage");
+
       });
   };
   return { successFun };

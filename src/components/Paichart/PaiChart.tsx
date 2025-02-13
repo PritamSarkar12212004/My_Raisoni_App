@@ -5,10 +5,9 @@ import React from "react";
 
 const PaiChart = ({ init, fainal }: any) => {
   const pieData = [
-    { value: init, color: "#F93827" },
+    { value: init-fainal, color: "#F93827" },
     { value: fainal, color: "#16C47F" },
   ];
-  const result = Math.round((fainal / init) * 100);
 
   return (
     <View style={{ alignItems: "center", marginVertical: 10 }}>
@@ -23,7 +22,7 @@ const PaiChart = ({ init, fainal }: any) => {
         centerLabelComponent={() => {
           return (
             <View className="flex items-center justify-center ">
-              <Text style={{ fontSize: 30 }}>{result}%</Text>
+              <Text style={{ fontSize: 30 }}>{fainal}%</Text>
               <Text className="text-lg font-semibold">Present</Text>
             </View>
           );

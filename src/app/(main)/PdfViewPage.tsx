@@ -36,6 +36,7 @@ const PdfViewPage = () => {
       />
       <TouchableOpacity
         onPress={downloadPDF}
+        activeOpacity={0.8}
         style={{
           backgroundColor: "#007bff",
           padding: 15,
@@ -45,7 +46,7 @@ const PdfViewPage = () => {
           bottom: 20,
           left: "10%",
           width: "80%",
-          borderRadius: 10,
+          borderRadius: 20,
         }}
       >
         <Text style={{ color: "#fff", fontSize: 18, fontWeight: "bold" }}>

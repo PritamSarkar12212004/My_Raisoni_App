@@ -12,5 +12,6 @@ const Animation = {
   Travel: require("../assets/files/animation/Travel.json"),
   Alert: require("../assets/files/animation/alert.json"),
   Wallet: require("../assets/files/animation/Wallet.json"),
+  Disk: require("../assets/files/animation/Disk.json"),
 };
 export default Animation;
