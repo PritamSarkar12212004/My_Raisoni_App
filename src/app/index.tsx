@@ -5,40 +5,38 @@ import LogoConstant from "../constants/LogoConstant";
 import ColorConstant from "../constants/ColorConstant";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as Updates from "expo-updates";
+import AxiosInstance from "../utils/axios/AxiosInstance";
 
 const index = () => {
   const router = useRouter();
+
+  const mainCheker = () => {
+    AxiosInstance.post("/helper/maintanence")
+      .then((res) => {
+        if (res.data.data === true) {
+          router.replace("/(helper)/MaintanenceMode");
+        } else {
+          cheker();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const cheker = async () => {
     const token = await AsyncStorage.getItem("userToken");
     const tokenId = await AsyncStorage.getItem("userId");
     const tokenPass = await AsyncStorage.getItem("userPass");
-    console.log(token, tokenId, tokenPass);
-
     if (JSON.parse(token) && JSON.parse(tokenId) && JSON.parse(tokenPass)) {
-      router.replace("/(helper)/TryAginPage");
+      router.replace("/(auth)/AutoLoager");
     } else {
-      router.replace("/(helper)/TryAginPage");
+      router.replace("/(auth)");
     }
   };
 
   useEffect(() => {
-    async function checkForUpdates() {
-      try {
-        const update = await Updates.checkForUpdateAsync();
-        if (update.isAvailable) {
-          await Updates.fetchUpdateAsync();
-          await Updates.reloadAsync(); // Restart app to apply update
-        }
-      } catch (error) {
-        console.log("Error checking for updates:", error);
-      }
-    }
-
-    checkForUpdates();
-    setTimeout(() => {
-      cheker();
-    }, 1500);
+    mainCheker();
   }, []);
   return (
     <SafeAreaProvider className="w-full h-full flex items-center justify-center ">

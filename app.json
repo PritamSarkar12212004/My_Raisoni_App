@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "My Raisoni",
-    "slug": "My-Raisoni",
-    "version": "1.5.0",
+    "slug": "myraisoni",
+    "version": "1.7.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -18,11 +18,7 @@
       },
       "package": "com.pritam_sarkar.MyRaisoni"
     },
-    "updates": {
-      "enabled": true,
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/08fa5be6-b1b4-48b3-9500-7e6b34b30d25"
-    },
+
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -56,9 +52,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "08fa5be6-b1b4-48b3-9500-7e6b34b30d25"
+        "projectId": "4de0dc0d-a1aa-4380-a0e3-0739f37ad7ae"
       }
     },
-    "runtimeVersion": "1.5.0"
+    "owner": "pritam_sarkar"
   }
 }

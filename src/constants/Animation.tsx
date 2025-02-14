@@ -13,5 +13,6 @@ const Animation = {
   Alert: require("../assets/files/animation/alert.json"),
   Wallet: require("../assets/files/animation/Wallet.json"),
   Disk: require("../assets/files/animation/Disk.json"),
+  Mantainance: require("../assets/files/animation/Mantainance.json"),
 };
 export default Animation;
