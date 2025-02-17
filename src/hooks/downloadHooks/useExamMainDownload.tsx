@@ -1,6 +1,7 @@
 import { userContext } from "@/src/context/ContextApi";
 import AxiosInstance from "@/src/utils/axios/AxiosInstance";
 import { useRouter } from "expo-router";
+import { Alert } from "react-native";
 
 const useExamMainDownload = () => {
   const router = useRouter();
@@ -20,8 +21,7 @@ const useExamMainDownload = () => {
       .catch((err) => {
         console.log(err);
         setloading(false);
-        router.replace("/(helper)/TryAginPage");
-
+        Alert.alert("Error", "Document not Available");
       });
   };
   return { exmamMainDownload };

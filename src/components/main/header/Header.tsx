@@ -29,17 +29,17 @@ const StudentProfile = () => {
         />
       </TouchableOpacity>
       <View className="flex py-5">
-        <Text className="text-xl text-warp font-thin text-wrap ">
+        <Text className="text-xl text-warp font-semibold text-wrap ">
           <Text className="font-bold text-wrap text-3xl text-[#7d73e6cc]">
             {userDetails.userFirstName.charAt(0)}
           </Text>
           {userDetails.userFirstName.slice(1)} {userDetails.middleName}{" "}
           {userDetails.lastName}
         </Text>
-        <Text className="text-lgz font-thin">
+        <Text className="text-lgz font-semibold">
           Rg No : {userDetails.registrationNumber}
         </Text>
-        <Text className="text-lg font-thin">
+        <Text className="text-lg font-semibold">
           Roll No : {userDetails.rollNumber}
         </Text>
       </View>

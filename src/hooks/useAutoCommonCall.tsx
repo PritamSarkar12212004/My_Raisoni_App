@@ -8,7 +8,6 @@ import { router } from "expo-router";
 const useAutoCommonCall = () => {
   const { setloader, setglobaltoken, setglobaluid } = userContext();
   const passIdSaver = async (id, pass) => {
-    console.log(id, pass);
     try {
       await AsyncStorage.setItem("userId", JSON.stringify(id));
       await AsyncStorage.setItem("userPass", JSON.stringify(pass));

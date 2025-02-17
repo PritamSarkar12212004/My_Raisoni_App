@@ -7,11 +7,12 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { DrawerItemList } from "@react-navigation/drawer";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import useLogout from "@/src/hooks/useLogout";
-
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { userContext } from "@/src/context/ContextApi";
+import { useRouter } from "expo-router";
 const _layout = () => {
+  const router = useRouter();
   const { Logout } = useLogout();
   const { userDetails, headerName, profileImage } = userContext();
   return (
@@ -20,6 +21,17 @@ const _layout = () => {
         screenOptions={{
           drawerActiveBackgroundColor: "transparent",
           drawerActiveTintColor: "transparent",
+          headerRight(props) {
+            return (
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => router.push("/(main)/Notification")}
+                className="w-full flex items-end justify-center px-5"
+              >
+                <Entypo name="notification" size={24} color="red" />
+              </TouchableOpacity>
+            );
+          },
         }}
         drawerContent={(props) => {
           return (

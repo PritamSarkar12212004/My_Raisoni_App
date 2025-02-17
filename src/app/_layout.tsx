@@ -1,6 +1,7 @@
 import { StatusBar } from "react-native";
 import { Stack } from "expo-router";
 import "../../global.css";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import React from "react";
 import { ContextProvider } from "../context/ContextApi";
@@ -8,7 +9,9 @@ import { ContextProvider } from "../context/ContextApi";
 const _layout = () => {
   return (
     <ContextProvider>
-      <MainLayout />
+      <GestureHandlerRootView>
+        <MainLayout />
+      </GestureHandlerRootView>
     </ContextProvider>
   );
 };

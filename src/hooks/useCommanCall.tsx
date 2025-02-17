@@ -32,6 +32,7 @@ const useCommanCall = () => {
       })
       .catch((err) => {
         setloader(false);
+        console.log(err.response);
         Alert.alert(
           "Error",
           "Invalid Credentials, if you entered Incorrect credentials 5 times then ID will be Blocked"

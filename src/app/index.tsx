@@ -11,11 +11,13 @@ const index = () => {
   const router = useRouter();
 
   const mainCheker = () => {
+    console.log("ckeker");
     AxiosInstance.post("/helper/maintanence")
       .then((res) => {
         if (res.data.data === true) {
           router.replace("/(helper)/MaintanenceMode");
         } else {
+          console.log("cker too");
           cheker();
         }
       })
