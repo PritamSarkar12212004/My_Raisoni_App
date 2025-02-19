@@ -11,233 +11,131 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { userContext } from "@/src/context/ContextApi";
 import { useRouter } from "expo-router";
+
 const _layout = () => {
   const router = useRouter();
   const { Logout } = useLogout();
   const { userDetails, headerName, profileImage } = userContext();
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
         screenOptions={{
           drawerActiveBackgroundColor: "transparent",
-          drawerActiveTintColor: "transparent",
-          headerRight(props) {
-            return (
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => router.push("/(main)/Notification")}
-                className="w-full flex items-end justify-center px-5"
-              >
-                <Entypo name="notification" size={24} color="red" />
-              </TouchableOpacity>
-            );
-          },
+          drawerActiveTintColor: "#7C73E6",
+          headerRight: () => (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => router.push("/(main)/Notification")}
+              className="w-full flex items-end justify-center px-5"
+            >
+              <Ionicons name="notifications" size={24} color="gray" />
+            </TouchableOpacity>
+          ),
         }}
-        drawerContent={(props) => {
-          return (
-            <View className="w-full items-center justify-between h-full  flex bg-zinc-200 backdrop-blur-lg  relative pt-20 pb-10">
-              <View className="w-full flex items-center justify-center gap-10">
-                <View className=" px-10 py-5 rounded-[40px] gap-2 flex items-center justify-center bg-zinc-100">
-                  <Image
-                    source={{
-                      uri: profileImage,
-                    }}
-                    className="w-44 h-44 rounded-2xl"
-                    resizeMode="cover"
-                  />
-                  <Text className="  font-medium  tracking-widest">
-                    {userDetails.userFirstName} {userDetails.middleName}
-                    {userDetails.lastName}
-                  </Text>
-                  <View className="flex  w-full  items-center justify-center">
-                    <Text className=" tracking-widest">
-                      ID : {userDetails.registrationNumber}
-                    </Text>
-                    <Text className="tracking-widest">
-                      Roll No : {userDetails.rollNumber}
-                    </Text>
-                  </View>
-                </View>
-                <View className="w-full ">
-                  <View className="w-full flex items-center justify-center"></View>
-                  <ScrollView className="w-full">
-                    <View className="w-full flex items-center justify-center ">
-                      <DrawerItemList {...props} />
-                      <View className="w-full flex items-center justify-center px-10 ">
-                        <TouchableOpacity
-                          onPress={() => Logout()}
-                          activeOpacity={0.8}
-                          className=" w-full flex py-4 rounded-3xl bg-red-500 items-center justify-center"
-                        >
-                          <Text className="text-2xl font-bold text-white ">
-                            Log Out
-                          </Text>
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  </ScrollView>
-                </View>
-              </View>
+        drawerContent={(props) => (
+          <View className="w-full h-full bg-white/90 backdrop-blur-lg pt-20 pb-10 px-5 flex items-center">
+            <View className="w-full items-center gap-4  py-4 bg-white rounded-3xl shadow-lg">
+              <Image
+                source={{ uri: profileImage }}
+                className="w-48 h-48 rounded-3xl border-4 border-white"
+                resizeMode="cover"
+              />
+              <Text className="text-lg font-bold text-gray-900">
+                {userDetails.userFirstName} {userDetails.middleName}{" "}
+                {userDetails.lastName}
+              </Text>
+              <Text className="text-gray-600">
+                ID: {userDetails.registrationNumber}
+              </Text>
+              <Text className="text-gray-600">
+                Roll No: {userDetails.rollNumber}
+              </Text>
             </View>
-          );
-        }}
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              className="w-full mt-5"
+            >
+              <DrawerItemList {...props} />
+            </ScrollView>
+            <TouchableOpacity
+              onPress={() => Logout()}
+              activeOpacity={0.8}
+              className="mt-5 w-full py-3 rounded-xl bg-red-500 flex items-center"
+            >
+              <Text className="text-lg font-bold text-white">Log Out</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       >
-        <Drawer.Screen
-          name="(tabs)"
-          options={{
-            title: headerName,
-            drawerIcon({ focused }) {
-              return (
-                <View className="w-full flex items-center justify-center px-5">
-                  <View
-                    className={`w-full flex items-center  px-5 gap-3 flex-row  h-14 rounded-xl  ${
-                      focused ? "bg-[#7C73E6]" : "bg-orange-500"
-                    } `}
-                  >
-                    <View>
-                      <Entypo name="home" size={25} color="white" />
-                    </View>
-                    <Text className="text-lg tracking-widest text-white  font-semibold">
-                      Home
-                    </Text>
-                  </View>
-                </View>
-              );
-            },
-          }}
-        />
-        <Drawer.Screen
-          name="IdCard"
-          options={{
+        {[
+          {
+            name: "(tabs)",
+            title: "Home",
+            icon: <Entypo name="home" size={25} color="white" />,
+          },
+          {
+            name: "IdCard",
             title: "Student Id",
-            drawerIcon({ focused }) {
-              return (
-                <View className="w-full flex items-center justify-center px-5">
-                  <View
-                    className={`w-full flex items-center  px-5 gap-3 flex-row  h-14 rounded-xl  ${
-                      focused ? "bg-[#7C73E6]" : "bg-orange-500"
-                    } `}
-                  >
-                    <View>
-                      <Ionicons name="document" size={25} color="white" />
-                    </View>
-                    <Text className="text-lg tracking-widest text-white  font-semibold">
-                      Student Id
-                    </Text>
-                  </View>
-                </View>
-              );
-            },
-          }}
-        />
-        <Drawer.Screen
-          name="MyAttendance"
-          options={{
+            icon: <Ionicons name="document" size={25} color="white" />,
+          },
+          {
+            name: "MyAttendance",
             title: "Attendance",
-            drawerIcon({ focused }) {
-              return (
-                <View className="w-full flex items-center justify-center px-5">
-                  <View
-                    className={`w-full flex items-center  px-5 gap-3 flex-row  h-14 rounded-xl  ${
-                      focused ? "bg-[#7C73E6]" : "bg-orange-500"
-                    } `}
-                  >
-                    <View>
-                      <MaterialIcons
-                        name="emoji-people"
-                        size={25}
-                        color="white"
-                      />
-                    </View>
-                    <Text className="text-lg tracking-widest text-white  font-semibold">
-                      Attendance
-                    </Text>
-                  </View>
-                </View>
-              );
-            },
-          }}
-        />
-        <Drawer.Screen
-          name="TimeTable"
-          options={{
+            icon: <MaterialIcons name="emoji-people" size={25} color="white" />,
+          },
+          {
+            name: "TimeTable",
             title: "Lecture",
-            drawerIcon({ focused }) {
-              return (
-                <View className="w-full flex items-center justify-center px-5">
+            icon: (
+              <MaterialCommunityIcons
+                name="timetable"
+                size={25}
+                color="white"
+              />
+            ),
+          },
+          {
+            name: "Fainance",
+            title: "College Fee",
+            icon: (
+              <FontAwesome5 name="money-bill-alt" size={25} color="white" />
+            ),
+          },
+          {
+            name: "Document",
+            title: "Documents",
+            icon: <Ionicons name="document" size={25} color="white" />,
+          },
+          {
+            name: "ICardGenarator",
+            title: "ICard Generator",
+            icon: <Ionicons name="document" size={25} color="white" />,
+          },
+        ].map((item, index) => (
+          <Drawer.Screen
+            key={index}
+            name={item.name}
+            options={{
+              title: item.title,
+              drawerIcon: ({ focused }) => (
+                <View className="w-full flex items-center justify-center">
                   <View
-                    className={`w-full flex items-center  px-5 gap-3 flex-row  h-14 rounded-xl  ${
+                    className={`w-full flex items-center px-5 gap-3 flex-row h-14 rounded-xl ${
                       focused ? "bg-[#7C73E6]" : "bg-orange-500"
-                    } `}
+                    }`}
                   >
-                    <View>
-                      <MaterialCommunityIcons
-                        name="timetable"
-                        size={25}
-                        color="white"
-                      />
-                    </View>
-                    <Text className="text-lg tracking-widest text-white  font-semibold">
-                      Lecture
+                    {item.icon}
+                    <Text className="text-lg tracking-widest text-white font-semibold">
+                      {item.title}
                     </Text>
                   </View>
                 </View>
-              );
-            },
-          }}
-        />
-        <Drawer.Screen
-          name="Fainance"
-          options={{
-            title: "Fainance",
-            drawerIcon({ focused }) {
-              return (
-                <View className="w-full flex items-center justify-center px-5">
-                  <View
-                    className={`w-full flex items-center  px-5 gap-3 flex-row  h-14 rounded-xl  ${
-                      focused ? "bg-[#7C73E6]" : "bg-orange-500"
-                    } `}
-                  >
-                    <View>
-                      <FontAwesome5
-                        name="money-bill-alt"
-                        size={25}
-                        color="white"
-                      />
-                    </View>
-                    <Text className="text-lg tracking-widest text-white  font-semibold">
-                      Collage Fee
-                    </Text>
-                  </View>
-                </View>
-              );
-            },
-          }}
-        />
-        <Drawer.Screen
-          name="Document"
-          options={{
-            title: "Document",
-            drawerIcon({ focused }) {
-              return (
-                <View className="w-full flex items-center justify-center px-5">
-                  <View
-                    className={`w-full flex items-center  px-5 gap-3 flex-row  h-14 rounded-xl  ${
-                      focused ? "bg-[#7C73E6]" : "bg-orange-500"
-                    } `}
-                  >
-                    <View>
-                      <Ionicons name="document" size={25} color="white" />
-                    </View>
-                    <Text className="text-lg tracking-widest text-white  font-semibold">
-                      Document
-                    </Text>
-                  </View>
-                </View>
-              );
-            },
-          }}
-        />
+              ),
+            }}
+          />
+        ))}
       </Drawer>
     </GestureHandlerRootView>
   );

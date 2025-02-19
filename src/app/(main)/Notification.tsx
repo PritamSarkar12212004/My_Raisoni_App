@@ -7,6 +7,8 @@ import SemiCard from "@/src/components/card/notificationCard/SemiCard";
 import { LinearGradient } from "expo-linear-gradient";
 import ImageCard from "@/src/components/card/notificationCard/ImageCard";
 import AxiosInstance from "@/src/utils/axios/AxiosInstance";
+import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
+import Animation from "@/src/constants/Animation";
 
 const Notification = () => {
   const [mainEvent, setMainEvent] = useState(null);
@@ -53,32 +55,43 @@ const Notification = () => {
       <View className="w-full h-full">
         <SafeAreaView className="">
           <NotificationHeader />
-          <ScrollView className="w-full h-full">
-            <ScrollView>
-              <ScrollView
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                className="flex w-full flex-row gap-4 mt-10 pl-2"
-              >
-                {mainEvent &&
-                  mainEvent.map((item, index) => {
-                    return <MainCard key={index} item={item} />;
-                  })}
+          {mainEvent && semimainEvent && smallmainEvent ? (
+            <ScrollView className="w-full h-full">
+              <ScrollView>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  className="flex w-full flex-row gap-4 mt-10 pl-2"
+                >
+                  {mainEvent &&
+                    mainEvent.map((item, index) => {
+                      return <MainCard key={index} item={item} />;
+                    })}
+                </ScrollView>
               </ScrollView>
+              <View className="w-full mt-16 flex items-center justify-center gap-5 mb-5">
+                {semimainEvent &&
+                  semimainEvent.map((item, index) => {
+                    return <ImageCard key={index} item={item} />;
+                  })}
+              </View>
+              <View className="w-full mt-16 flex items-center justify-center gap-5 mb-48">
+                {smallmainEvent &&
+                  smallmainEvent.map((item, index) => {
+                    return <SemiCard key={index} item={item} />;
+                  })}
+              </View>
             </ScrollView>
-            <View className="w-full mt-16 flex items-center justify-center gap-5 mb-5">
-              {semimainEvent &&
-                semimainEvent.map((item, index) => {
-                  return <ImageCard key={index} item={item} />;
-                })}
+          ) : (
+            <View className="w-full h-full flex items-center justify-center">
+              <LottiAnimation
+                path={Animation.noti}
+                width={300}
+                height={300}
+                color={"transparent"}
+              />
             </View>
-            <View className="w-full mt-16 flex items-center justify-center gap-5 mb-48">
-              {smallmainEvent &&
-                smallmainEvent.map((item, index) => {
-                  return <SemiCard key={index} item={item} />;
-                })}
-            </View>
-          </ScrollView>
+          )}
         </SafeAreaView>
       </View>
     </LinearGradient>

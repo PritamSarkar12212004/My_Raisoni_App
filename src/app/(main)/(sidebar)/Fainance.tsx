@@ -9,7 +9,6 @@ import Animation from "@/src/constants/Animation";
 const Fainance = () => {
   const { ApiStudentFeesCall } = useStudentFeesCall();
   const { feesDetails } = userContext();
-  feesDetails && console.log(feesDetails[0].studAcademicFeesDtlsList);
   useEffect(() => {
     ApiStudentFeesCall();
   }, []);

@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import EvilIcons from "@expo/vector-icons/EvilIcons";
 import { useNavigation } from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
 const NotificationHeader = () => {
   const navigation = useNavigation();
   return (
@@ -11,7 +11,7 @@ const NotificationHeader = () => {
         onPress={() => navigation.goBack()}
         className="w-14 h-14 flex items-center justify-center bg-white/20 rounded-full"
       >
-        <EvilIcons name="arrow-left" size={30} color="white" />
+        <AntDesign name="arrowleft" size={30} color="white" />
       </TouchableOpacity>
       <Text className="text-white text-2xl font-bold">Notification</Text>
       <View className="w-16 h-16"></View>

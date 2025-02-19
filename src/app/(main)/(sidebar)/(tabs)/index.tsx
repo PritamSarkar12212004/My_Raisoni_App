@@ -67,19 +67,19 @@ const index = () => {
                 <View className="w-full mt-2  text-white  ">
                   <Text className="text-lg  text-white  font-semibold">
                     Year:
-                    <Text className="font-thin text-white">
+                    <Text className="font-semibold text-white">
                       {courseDetails.yearName}
                     </Text>
                   </Text>
                   <Text className="text-lg  text-white  font-semibold">
                     Semister:
-                    <Text className="font-thin text-white">
+                    <Text className="font-semibold text-white">
                       {courseDetails.semesterName}
                     </Text>
                   </Text>
                   <Text className="text-lg  text-white  font-semibold">
                     Section:
-                    <Text className="font-thin text-white">
+                    <Text className="font-semibold text-white">
                       {courseDetails.sectionName}
                     </Text>
                   </Text>

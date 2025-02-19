@@ -1,5 +1,5 @@
 import axios from "axios";
 const AxiosInstance = axios.create({
-  baseURL: "http://192.168.1.7:3000",
+  baseURL: "https://my-raisoni-backend.vercel.app",
 });
 export default AxiosInstance;
