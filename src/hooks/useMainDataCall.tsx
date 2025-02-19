@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 
 const useMainDataCall = () => {
   const {
-    setloader ,
+    setloader,
     setcastAndReligion,
     setcourseDetails,
     setfatherDetails,
@@ -21,13 +21,14 @@ const useMainDataCall = () => {
       data: res.data.data,
     })
       .then((res) => {
+        console.log(res.data.data.studentAddress )
         setattendanceDataMain(res.data.data.attandance.data);
         setprofileImage(res.data.data.image); // Set Base64 image
 
         setcastAndReligion(
           res.data.data.castAndReligion ? res.data.data.castAndReligion : null
         );
-
+        
         setcourseDetails(
           res.data.data.courseDetails ? res.data.data.courseDetails : null
         );
@@ -53,7 +54,6 @@ const useMainDataCall = () => {
         console.log(err);
         setloader(false);
         router.replace("/(helper)/TryAginPage");
-
       });
   };
   return { successFun };

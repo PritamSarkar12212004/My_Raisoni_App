@@ -105,12 +105,12 @@ const _layout = () => {
           },
           {
             name: "Document",
-            title: "Documents",
+            title: "Document",
             icon: <Ionicons name="document" size={25} color="white" />,
           },
           {
             name: "ICardGenarator",
-            title: "ICard Generator",
+            title: "I Card",
             icon: <Ionicons name="document" size={25} color="white" />,
           },
         ].map((item, index) => (

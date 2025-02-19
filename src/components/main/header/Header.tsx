@@ -37,7 +37,7 @@ const StudentProfile = () => {
           {userDetails.lastName}
         </Text>
         <Text className="text-lgz font-semibold">
-          Rg No : {userDetails.registrationNumber}
+          Reg No : {userDetails.registrationNumber}
         </Text>
         <Text className="text-lg font-semibold">
           Roll No : {userDetails.rollNumber}

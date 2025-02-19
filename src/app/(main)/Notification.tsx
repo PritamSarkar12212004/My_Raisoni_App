@@ -9,8 +9,10 @@ import ImageCard from "@/src/components/card/notificationCard/ImageCard";
 import AxiosInstance from "@/src/utils/axios/AxiosInstance";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
+import { useRouter } from "expo-router";
 
 const Notification = () => {
+  const router = useRouter();
   const [mainEvent, setMainEvent] = useState(null);
   const [semimainEvent, semisetMainEvent] = useState(null);
   const [smallmainEvent, setsmallmainEvent] = useState(null);
@@ -29,6 +31,8 @@ const Notification = () => {
         semisetMainEvent(res.data.data);
       })
       .catch((err) => {
+        router.replace("/(helper)/TryAginPage");
+
         console.log(err);
       });
   };
@@ -38,6 +42,7 @@ const Notification = () => {
         setsmallmainEvent(res.data.data);
       })
       .catch((err) => {
+        router.replace("/(helper)/TryAginPage");
         console.log(err);
       });
   };
