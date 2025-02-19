@@ -1,27 +1,87 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import ImageConstant from "@/src/constants/ImageConstant";
+import { View, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
 import NotificationHeader from "@/src/components/Head/NotificationHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
+import MainCard from "@/src/components/card/notificationCard/MainCard";
+import SemiCard from "@/src/components/card/notificationCard/SemiCard";
+import { LinearGradient } from "expo-linear-gradient";
+import ImageCard from "@/src/components/card/notificationCard/ImageCard";
+import AxiosInstance from "@/src/utils/axios/AxiosInstance";
 
 const Notification = () => {
+  const [mainEvent, setMainEvent] = useState(null);
+  const [semimainEvent, semisetMainEvent] = useState(null);
+  const [smallmainEvent, setsmallmainEvent] = useState(null);
+  const mainEventCheker = async () => {
+    AxiosInstance.post("/event/main")
+      .then((res) => {
+        setMainEvent(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const SemimainEventCheker = async () => {
+    AxiosInstance.post("/event/semi")
+      .then((res) => {
+        semisetMainEvent(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const SmallmainEventCheker = async () => {
+    AxiosInstance.post("/event/small")
+      .then((res) => {
+        setsmallmainEvent(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    mainEventCheker();
+    SemimainEventCheker();
+    SmallmainEventCheker();
+  }, []);
   return (
-    <View className="w-full h-full flex relative ">
-      <Image
-        source={ImageConstant.Notification}
-        className="w-full h-full absolute top-0 left-0"
-      />
-      <View
-        className="w-full h-full absolute top-0 left-0 backdrop-blur-3xl
-          bg-black/20
-            
-        "
-      >
+    <LinearGradient
+      // Button Linear Gradient
+      colors={["#1E1E2C", "#25253D", "#10101A"]}
+      style={{ flex: 1, width: "100%", height: "100%" }}
+    >
+      <View className="w-full h-full">
         <SafeAreaView className="">
           <NotificationHeader />
+          <ScrollView className="w-full h-full">
+            <ScrollView>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                className="flex w-full flex-row gap-4 mt-10 pl-2"
+              >
+                {mainEvent &&
+                  mainEvent.map((item, index) => {
+                    return <MainCard key={index} item={item} />;
+                  })}
+              </ScrollView>
+            </ScrollView>
+            <View className="w-full mt-16 flex items-center justify-center gap-5 mb-5">
+              {semimainEvent &&
+                semimainEvent.map((item, index) => {
+                  return <ImageCard key={index} item={item} />;
+                })}
+            </View>
+            <View className="w-full mt-16 flex items-center justify-center gap-5 mb-48">
+              {smallmainEvent &&
+                smallmainEvent.map((item, index) => {
+                  return <SemiCard key={index} item={item} />;
+                })}
+            </View>
+          </ScrollView>
         </SafeAreaView>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 

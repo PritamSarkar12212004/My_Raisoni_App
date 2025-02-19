@@ -15,7 +15,7 @@ const index = () => {
     AxiosInstance.post("/helper/maintanence")
       .then((res) => {
         if (res.data.data === true) {
-          router.replace("/(helper)/MaintanenceMode");
+          router.replace("/(main)/Notification");
         } else {
           console.log("cker too");
           cheker();
@@ -31,9 +31,9 @@ const index = () => {
     const tokenId = await AsyncStorage.getItem("userId");
     const tokenPass = await AsyncStorage.getItem("userPass");
     if (JSON.parse(token) && JSON.parse(tokenId) && JSON.parse(tokenPass)) {
-      router.replace("/(auth)/AutoLoager");
+      router.replace("/(main)/Notification");
     } else {
-      router.replace("/(auth)");
+      router.replace("/(main)/Notification");
     }
   };
 

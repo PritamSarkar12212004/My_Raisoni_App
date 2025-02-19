@@ -45,6 +45,8 @@ export const ContextProvider = ({ children }: any) => {
   const [attendanceDataMain, setattendanceDataMain] = useState(null);
 
   const [pdfValue, setpdfValue] = useState(null);
+  const [maincardValue, setmaincardValue] = useState(null);
+  const [imagecardValue, setimagecardValue] = useState(null);
   return (
     <Context.Provider
       value={{
@@ -92,6 +94,10 @@ export const ContextProvider = ({ children }: any) => {
         setattendanceDataMain,
         pdfValue,
         setpdfValue,
+        maincardValue,
+        setmaincardValue,
+        imagecardValue,
+        setimagecardValue,
       }}
     >
       {children}

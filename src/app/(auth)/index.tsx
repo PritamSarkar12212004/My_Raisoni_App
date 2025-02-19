@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   StyleSheet,
 } from "react-native";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useMainDataCall from "@/src/hooks/useMainDataCall";
 import { userContext } from "@/src/context/ContextApi";

@@ -11,6 +11,19 @@ const _layout = () => {
           animation: "fade_from_bottom",
         }}
       />
+
+      <Stack.Screen
+        name="ShowNotification"
+        options={{
+          animation: "slide_from_right",
+        }}
+      />
+      <Stack.Screen
+        name="ImageShowNotification"
+        options={{
+          animation: "simple_push",
+        }}
+      />
     </Stack>
   );
 };
