@@ -18,7 +18,6 @@
       },
       "package": "com.pritam_sarkar.MyRaisoni"
     },
-
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -55,6 +54,12 @@
         "projectId": "4de0dc0d-a1aa-4380-a0e3-0739f37ad7ae"
       }
     },
-    "owner": "pritam_sarkar"
+    "owner": "pritam_sarkar",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4de0dc0d-a1aa-4380-a0e3-0739f37ad7ae"
+    }
   }
 }

@@ -10,7 +10,11 @@ const Document = () => {
     <ScrollView className="w-full  bg-white">
       <View className="w-full h-full flex px-2  items-center justify-center py-10 bg-white ">
         <View className="w-full h-[80vh] bg-[#9CACFF] rounded-[40px] flex  justify-between">
-          <View className="w-full  pt-10 px-5 flex-row items-center justify-between ">
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => router.push("/(main)/FainanceDoc")}
+            className="w-full  pt-10 px-5 flex-row items-center justify-between "
+          >
             <Text className="text-3xl text-white font-semibold tracking-widest">
               Fainance
             </Text>
@@ -21,13 +25,18 @@ const Document = () => {
             >
               <Feather name="arrow-up-right" size={24} color="black" />
             </TouchableOpacity>
-          </View>
-          <View className="w-full bg-[#FFCC90] h-[85%] rounded-[40px] flex items-center justify-between">
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => router.push("/(main)/ExamDox")}
+            className="w-full bg-[#FFCC90] h-[85%] rounded-[40px] flex items-center justify-between"
+          >
             <View className="w-full  pt-10 px-5 flex-row items-center justify-between ">
               <Text className="text-3xl text-white font-semibold tracking-widest">
                 Exam
               </Text>
               <TouchableOpacity
+                activeOpacity={0.8}
                 onPress={() => router.push("/(main)/ExamDox")}
                 className="h-16 w-16 bg-white rounded-full flex items-center justify-center"
               >
@@ -35,7 +44,6 @@ const Document = () => {
               </TouchableOpacity>
             </View>
             <View className="w-full h-[80%] bg-[#7FD9B8] flex rounded-[40px] items-center justify-between">
-             
               <View className="w-full h-[100%] bg-[#DD87B0] flex rounded-[40px] items-center justify-center">
                 <LottiAnimation
                   path={Animation.Wallet}
@@ -48,7 +56,7 @@ const Document = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
