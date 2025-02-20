@@ -1,7 +1,20 @@
 import React from "react";
 import { Stack } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "react-native";
 
 const _layout = () => {
+  return (
+    <>
+      <StatusBar hidden={false} barStyle={"dark-content"} />
+      <SafeAreaView style={{ flex: 1 }}>
+        <MainLayout />
+      </SafeAreaView>
+    </>
+  );
+};
+
+const MainLayout = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(sidebar)" />

@@ -15,7 +15,7 @@ import { useRouter } from "expo-router";
 const _layout = () => {
   const router = useRouter();
   const { Logout } = useLogout();
-  const { userDetails, headerName, profileImage } = userContext();
+  const { userDetails,  profileImage } = userContext();
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -34,7 +34,7 @@ const _layout = () => {
           ),
         }}
         drawerContent={(props) => (
-          <View className="w-full h-full bg-white/90 backdrop-blur-lg pt-20 pb-10 px-5 flex items-center">
+          <View className="w-full h-full bg-white/90 backdrop-blur-lg  pb-10 px-5 flex items-center">
             <View className="w-full items-center gap-4  py-4 bg-white rounded-3xl shadow-lg">
               <Image
                 source={{ uri: profileImage }}

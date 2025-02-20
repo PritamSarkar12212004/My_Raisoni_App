@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   StyleSheet,
+  StatusBar,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -81,7 +82,7 @@ const index = () => {
     passIdFinder();
   }, []);
   return (
-    <SafeAreaView className="w-full h-full bg-white">
+    <View className="w-full h-full bg-white">
       <View className="w-full h-full px-4 pb-5">
         <View className="w-full flex-auto pt-10">
           <View className="w-full">
@@ -226,7 +227,7 @@ const index = () => {
           </View>
         </BottomSheetView>
       </BottomSheet>
-    </SafeAreaView>
+    </View>
   );
 };
 const styles = StyleSheet.create({

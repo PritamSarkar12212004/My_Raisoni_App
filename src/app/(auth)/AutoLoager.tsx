@@ -22,7 +22,7 @@ const AutoLoager = () => {
     tokenAuthFinder();
   }, []);
   return (
-    <SafeAreaView className="w-full h-full flex items-center justify-between bg-white py-10">
+    <View className="w-full h-full flex items-center justify-between bg-white py-10">
       <View />
       <View className="w-full flex  items-center justify-center">
         <LottiAnimation
@@ -38,7 +38,7 @@ const AutoLoager = () => {
       <View className="w-full flex items-center justify-center">
         <Text>Loading ...</Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

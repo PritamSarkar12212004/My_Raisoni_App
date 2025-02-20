@@ -18,7 +18,6 @@ const _layout = () => {
 const MainLayout = () => {
   return (
     <>
-      <StatusBar hidden />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
       </Stack>

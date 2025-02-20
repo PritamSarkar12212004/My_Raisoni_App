@@ -1,4 +1,4 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, StatusBar } from "react-native";
 import React, { useEffect, useState } from "react";
 import NotificationHeader from "@/src/components/Head/NotificationHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -57,47 +57,51 @@ const Notification = () => {
       colors={["#1E1E2C", "#25253D", "#10101A"]}
       style={{ flex: 1, width: "100%", height: "100%" }}
     >
+      <StatusBar
+        barStyle={"light-content"}
+        backgroundColor="#1E1E2C"
+        translucent={false}
+      />
+
       <View className="w-full h-full">
-        <SafeAreaView className="">
-          <NotificationHeader />
-          {mainEvent && semimainEvent && smallmainEvent ? (
-            <ScrollView className="w-full h-full">
-              <ScrollView>
-                <ScrollView
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                  className="flex w-full flex-row gap-4 mt-10 pl-2"
-                >
-                  {mainEvent &&
-                    mainEvent.map((item, index) => {
-                      return <MainCard key={index} item={item} />;
-                    })}
-                </ScrollView>
+        <NotificationHeader />
+        {mainEvent && semimainEvent && smallmainEvent ? (
+          <ScrollView className="w-full h-full">
+            <ScrollView>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                className="flex w-full flex-row gap-4 mt-10 pl-2"
+              >
+                {mainEvent &&
+                  mainEvent.map((item, index) => {
+                    return <MainCard key={index} item={item} />;
+                  })}
               </ScrollView>
-              <View className="w-full mt-16 flex items-center justify-center gap-5 mb-5">
-                {semimainEvent &&
-                  semimainEvent.map((item, index) => {
-                    return <ImageCard key={index} item={item} />;
-                  })}
-              </View>
-              <View className="w-full mt-16 flex items-center justify-center gap-5 mb-48">
-                {smallmainEvent &&
-                  smallmainEvent.map((item, index) => {
-                    return <SemiCard key={index} item={item} />;
-                  })}
-              </View>
             </ScrollView>
-          ) : (
-            <View className="w-full h-full flex items-center justify-center">
-              <LottiAnimation
-                path={Animation.noti}
-                width={300}
-                height={300}
-                color={"transparent"}
-              />
+            <View className="w-full mt-16 flex items-center justify-center gap-5 mb-5">
+              {semimainEvent &&
+                semimainEvent.map((item, index) => {
+                  return <ImageCard key={index} item={item} />;
+                })}
             </View>
-          )}
-        </SafeAreaView>
+            <View className="w-full mt-16 flex items-center justify-center gap-5 mb-48">
+              {smallmainEvent &&
+                smallmainEvent.map((item, index) => {
+                  return <SemiCard key={index} item={item} />;
+                })}
+            </View>
+          </ScrollView>
+        ) : (
+          <View className="w-full h-full flex items-center justify-center">
+            <LottiAnimation
+              path={Animation.noti}
+              width={300}
+              height={300}
+              color={"transparent"}
+            />
+          </View>
+        )}
       </View>
     </LinearGradient>
   );

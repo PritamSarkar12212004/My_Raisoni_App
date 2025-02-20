@@ -37,7 +37,6 @@ const ImageShowNotification = () => {
         />
       )}
 
-      <SafeAreaView>
         <NotificationHeader />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View className="w-full px-4 flex items-center justify-center mt-5 mb-40">
@@ -84,7 +83,6 @@ const ImageShowNotification = () => {
             </View>
           )}
         </ScrollView>
-      </SafeAreaView>
     </LinearGradient>
   );
 };

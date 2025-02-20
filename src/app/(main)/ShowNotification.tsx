@@ -56,7 +56,6 @@ const ShowNotification = () => {
       colors={["#1E1E2C", "#25253D", "#10101A"]}
       style={{ flex: 1, width: "100%", height: "100%" }}
     >
-      <SafeAreaView>
         <NotificationHeader />
         <ImageView
           images={images}
@@ -135,7 +134,6 @@ const ShowNotification = () => {
             )}
           </View>
         </ScrollView>
-      </SafeAreaView>
     </LinearGradient>
   );
 };

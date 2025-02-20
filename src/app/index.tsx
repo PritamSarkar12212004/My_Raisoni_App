@@ -39,7 +39,6 @@ const index = () => {
     mainCheker();
   }, []);
   return (
-    <SafeAreaProvider className="w-full h-full flex items-center justify-center ">
       <View
         className="w-full h-full flex items-center py-10 justify-between "
         style={{ backgroundColor: ColorConstant.SplashBg }}
@@ -56,7 +55,6 @@ const index = () => {
           </Text>
         </View>
       </View>
-    </SafeAreaProvider>
   );
 };
 
