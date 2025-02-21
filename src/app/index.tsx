@@ -1,6 +1,5 @@
 import { View, Text, Image, StatusBar } from "react-native";
 import React, { useEffect } from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import LogoConstant from "../constants/LogoConstant";
 import ColorConstant from "../constants/ColorConstant";
 import { useRouter } from "expo-router";
