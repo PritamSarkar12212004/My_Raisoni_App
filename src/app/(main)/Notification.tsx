@@ -1,7 +1,6 @@
 import { View, ScrollView, StatusBar } from "react-native";
 import React, { useEffect, useState } from "react";
 import NotificationHeader from "@/src/components/Head/NotificationHeader";
-import { SafeAreaView } from "react-native-safe-area-context";
 import MainCard from "@/src/components/card/notificationCard/MainCard";
 import SemiCard from "@/src/components/card/notificationCard/SemiCard";
 import { LinearGradient } from "expo-linear-gradient";

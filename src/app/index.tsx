@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StatusBar } from "react-native";
 import React, { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import LogoConstant from "../constants/LogoConstant";
@@ -39,6 +39,8 @@ const index = () => {
     mainCheker();
   }, []);
   return (
+    <>
+      <StatusBar hidden={true} />
       <View
         className="w-full h-full flex items-center py-10 justify-between "
         style={{ backgroundColor: ColorConstant.SplashBg }}
@@ -55,6 +57,7 @@ const index = () => {
           </Text>
         </View>
       </View>
+    </>
   );
 };
 
