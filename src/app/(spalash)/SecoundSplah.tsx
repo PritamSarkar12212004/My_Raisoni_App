@@ -14,7 +14,7 @@ const SecoundSplah = () => {
     router.replace("/(auth)");
   };
   return (
-    <SafeAreaView
+    <View
       className="w-full h-full "
       style={{ backgroundColor: ColorConstant.splash2 }}
     >
@@ -40,7 +40,7 @@ const SecoundSplah = () => {
           <SkipButton />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

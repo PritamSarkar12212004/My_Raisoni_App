@@ -12,7 +12,7 @@ const index = () => {
     return navigatetion.navigate("SecoundSplah");
   };
   return (
-    <SafeAreaView
+    <View
       className="w-full h-full "
       style={{ backgroundColor: ColorConstant.splash1 }}
     >
@@ -36,7 +36,7 @@ const index = () => {
           <SkipButton />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

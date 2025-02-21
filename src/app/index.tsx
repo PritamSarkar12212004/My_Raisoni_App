@@ -30,7 +30,7 @@ const index = () => {
     if (JSON.parse(token) && JSON.parse(tokenId) && JSON.parse(tokenPass)) {
       router.replace("/(auth)/AutoLoager");
     } else {
-      router.replace("/(auth)");
+      router.replace("/(spalash)");
     }
   };
 
