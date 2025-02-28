@@ -19,27 +19,19 @@ const StudentProfile = () => {
         visible={visible}
         onRequestClose={() => setIsVisible(false)}
       />
-      <TouchableOpacity onPress={() => setIsVisible(true)} activeOpacity={0.8}>
-        <Image
-          source={{
-            uri: profileImage,
-          }}
-          className="h-32 w-32 rounded-3xl"
-          resizeMode="cover"
-        />
-      </TouchableOpacity>
+     
       <View className="flex py-5">
-        <Text className="text-xl text-warp font-semibold text-wrap ">
-          <Text className="font-bold text-wrap text-3xl text-[#7d73e6cc]">
+        <Text className="text-xl text-warp font-semibold text-wrap   text-white  ">
+          <Text className="font-bold text-wrap text-3xl text-[#7d73e6cc]  text-white ">
             {userDetails.userFirstName.charAt(0)}
           </Text>
           {userDetails.userFirstName.slice(1)} {userDetails.middleName}{" "}
           {userDetails.lastName}
         </Text>
-        <Text className="text-lgz font-semibold">
+        <Text className="text-lgz font-semibold  text-white ">
           Reg No : {userDetails.registrationNumber}
         </Text>
-        <Text className="text-lg font-semibold">
+        <Text className="text-lg font-semibold  text-white ">
           Roll No : {userDetails.rollNumber}
         </Text>
       </View>

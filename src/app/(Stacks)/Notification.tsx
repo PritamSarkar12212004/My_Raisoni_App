@@ -63,7 +63,9 @@ const Notification = () => {
       />
 
       <View className="w-full h-full">
-        <NotificationHeader />
+        <View className="w-full flex items-center justify-center px-3">
+          <NotificationHeader title={"Notification"} />
+        </View>
         {mainEvent && semimainEvent && smallmainEvent ? (
           <ScrollView className="w-full h-full">
             <ScrollView>

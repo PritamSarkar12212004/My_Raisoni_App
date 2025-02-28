@@ -8,12 +8,13 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeadNavigation from "@/src/components/headNavigationForPdf/HeadNavigation";
 import useFinanceDownloadHook from "../../hooks/downloadHooks/useFinanceDownloadHook";
 import Feather from "@expo/vector-icons/Feather";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
 import useFainanceFainalDowqnload from "@/src/hooks/downloadHooks/useFainanceFainalDowqnload";
+import SubPageWraper from "@/src/components/wrapermain/SubPageWraper";
+import NotificationHeader from "@/src/components/Head/NotificationHeader";
 
 const FinanceItem = ({ item, fuctiuon, loading }: any) => (
   <View
@@ -74,16 +75,13 @@ const FainanceDoc = () => {
   }, []); // Only runs once on mount
 
   return (
-    <View className="w-full h-full">
-      <SafeAreaView className="w-full h-full bg-white">
-        <View className="w-full px-2 py-2">
-          <HeadNavigation title={"Finance Documents"} />
-        </View>
-
+    <SubPageWraper>
+      <NotificationHeader title="Fees Receipt" />
+      <SafeAreaView className="w-full h-full ">
         <View className="w-full flex-1">
           {data.length > 0 || data2.length > 0 ? (
             <ScrollView showsVerticalScrollIndicator={false}>
-              <View className="w-full flex px-3">
+              <View className="w-full flex ">
                 <FlatList
                   showsVerticalScrollIndicator={false}
                   data={data}
@@ -98,7 +96,7 @@ const FainanceDoc = () => {
                 />
               </View>
 
-              <View className="w-full flex px-3 mt-4">
+              <View className="w-full flex mt-4 mb-40">
                 <FlatList
                   showsVerticalScrollIndicator={false}
                   data={data2}
@@ -119,13 +117,13 @@ const FainanceDoc = () => {
                 width={300}
                 height={300}
                 path={Animation.Wallet}
-                color={"white"}
+                color={"#21242C"}
               />
             </View>
           )}
         </View>
       </SafeAreaView>
-    </View>
+    </SubPageWraper>
   );
 };
 

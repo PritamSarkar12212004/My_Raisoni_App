@@ -6,25 +6,23 @@ import React from "react";
 const PaiChart2 = ({ init, fainal, title }: any) => {
   const fainalcgpa = init - fainal;
   const pieData = [
-    { value: fainalcgpa, color: "#F93827" },
-    { value: fainal, color: "#008FFF" },
+    { value: fainalcgpa, color: "black" },
+    { value: fainal, color: "#E4B324" },
   ];
 
   return (
-    <View style={{ alignItems: "center", marginVertical: 0 }}>
+    <View
+      style={{ alignItems: "center", marginVertical: 0 }}
+      className="bg-[#FECA1F]"
+    >
       <PieChart
         data={pieData}
-        donut
-        radius={90}
-        innerRadius={45}
-        shadowWidth={10}
-        showGradient
-        showTooltip
+        radius={60}
+        innerRadius={50}
         centerLabelComponent={() => {
           return (
             <View className="flex items-center justify-center ">
-              <Text style={{ fontSize: 25 }}>{fainal}</Text>
-              <Text className="text-lg font-semibold">{title}</Text>
+              <Text className="text-3xl font-extrabold">{fainal}%</Text>
             </View>
           );
         }}

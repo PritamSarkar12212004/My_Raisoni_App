@@ -14,7 +14,7 @@ const useFainanceFainalDowqnload = () => {
     })
       .then((res) => {
         setpdfValue(res.data.data);
-        router.push("/(main)/PdfViewPage");
+        router.push("/(Stacks)/PdfViewPage");
         setloading(false);
       })
       .catch((err) => {

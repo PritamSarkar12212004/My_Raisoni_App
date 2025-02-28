@@ -2,10 +2,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { useNavigation } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
-const NotificationHeader = () => {
+const NotificationHeader = ({ title }: any) => {
   const navigation = useNavigation();
   return (
-    <View className="w-full flex-row items-center justify-between px-3 py-2 ">
+    <View className="w-full flex-row items-center justify-between py-2 ">
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => navigation.goBack()}
@@ -13,7 +13,7 @@ const NotificationHeader = () => {
       >
         <AntDesign name="arrowleft" size={30} color="white" />
       </TouchableOpacity>
-      <Text className="text-white text-2xl font-bold">Notification</Text>
+      <Text className="text-white text-2xl font-bold">{title}</Text>
       <View className="w-16 h-16"></View>
     </View>
   );

@@ -1,44 +1,73 @@
 import React from "react";
-import { Stack } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "react-native";
-
+import { Tabs } from "expo-router";
+import { StatusBar, StyleSheet, View } from "react-native";
+import Entypo from "@expo/vector-icons/Entypo";
+import AntDesign from "@expo/vector-icons/AntDesign";
 const _layout = () => {
   return (
     <>
-      <StatusBar hidden={false} barStyle={"dark-content"} />
-      <SafeAreaView style={{ flex: 1 }}>
-        <MainLayout />
-      </SafeAreaView>
+      <StatusBar barStyle="light-content" backgroundColor={"#21242C"} />
+      <Tabs
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: styles.tabBarStyle,
+          tabBarShowLabel: false,
+        }}
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "Home",
+            tabBarIcon({ focused }) {
+              return (
+                <View className="h-10 w-10 flex items-center justify-center">
+                  <Entypo
+                    name="home"
+                    size={35}
+                    color={focused ? "#A294F9" : "gray"}
+                  />
+                </View>
+              );
+            },
+          }}
+        />
+        <Tabs.Screen
+          name="About"
+          options={{
+            title: "About",
+            tabBarIcon({ focused }) {
+              return (
+                <View className="h-10 w-10 flex items-center justify-center">
+                  <AntDesign
+                    name="infocirlce"
+                    size={30}
+                    color={focused ? "#A294F9" : "gray"}
+                  />
+                </View>
+              );
+            },
+          }}
+        />
+      </Tabs>
     </>
   );
 };
-
-const MainLayout = () => {
-  return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="(sidebar)" />
-      <Stack.Screen
-        name="PdfViewPage"
-        options={{
-          animation: "fade_from_bottom",
-        }}
-      />
-
-      <Stack.Screen
-        name="ShowNotification"
-        options={{
-          animation: "slide_from_right",
-        }}
-      />
-      <Stack.Screen
-        name="ImageShowNotification"
-        options={{
-          animation: "simple_push",
-        }}
-      />
-    </Stack>
-  );
-};
+const styles = StyleSheet.create({
+  tabBarStyle: {
+    position: "absolute",
+    bottom: 45,
+    left: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    height: 65,
+    borderRadius: 100,
+    backgroundColor: "#313640",
+    borderWidth: 0,
+    borderColor: "#313640",
+    paddingBottom: 10,
+    paddingTop: 10,
+    backdropFilter: "blur(10px)",
+  },
+});
 
 export default _layout;
