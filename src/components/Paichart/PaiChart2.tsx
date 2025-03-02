@@ -11,10 +11,7 @@ const PaiChart2 = ({ init, fainal, title }: any) => {
   ];
 
   return (
-    <View
-      style={{ alignItems: "center", marginVertical: 0 }}
-      className="bg-[#FECA1F]"
-    >
+    <View style={{ alignItems: "center", marginVertical: 0 }}>
       <PieChart
         data={pieData}
         radius={60}

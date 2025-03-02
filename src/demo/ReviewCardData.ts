@@ -1,10 +1,11 @@
 const ReviewCardData = [
   {
-    title: "Classes",
-    subtitle: "your total classes",
-    value: "7 C",
+    title: "Personal information",
+    subtitle: "See personal information",
+    value: "Info",
     color: "#F39845",
     iconName: "book", // Store only the name of the icon
+    router: "/PersonlInformation",
   },
   {
     title: "Documents",

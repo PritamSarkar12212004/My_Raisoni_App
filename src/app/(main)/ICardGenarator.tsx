@@ -18,7 +18,7 @@ const ICardGenarator = () => {
   } = userContext();
 
   return (
-    <SafeAreaView className="w-full h-full bg-zinc-200">
+    <SafeAreaView className="w-full h-full bg-[#21242C]">
       <View className="w-full h-full flex-row items-center justify-center px-2">
         <View className="w-[125vw] flex gap-2 items-center justify-between p-5 h-[37vh] bg-white rounded-2xl rotate-90">
           <View className="w-full h-20 flex-row items-center justify-between">
@@ -84,7 +84,9 @@ const ICardGenarator = () => {
               <View>
                 <Text className="leading-tight tracking-wider font-semibold text-wrap">
                   Address :{" "}
-                  <Text className="text-xs tracking-wider ">{studentAddress.address},</Text>
+                  <Text className="text-xs tracking-wider ">
+                    {studentAddress.address},
+                  </Text>
                   <Text className="text-xs tracking-wider ">
                     {studentAddress.districtName},{studentAddress.pincode}
                   </Text>

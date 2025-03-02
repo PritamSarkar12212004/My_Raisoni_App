@@ -9,7 +9,7 @@ const ReviewCard = ({ item }: any) => {
     <TouchableOpacity
       onPress={() => router.push(`/(Stacks)/${item.router}`)}
       activeOpacity={0.8}
-      className="w-48 h-48 mb-5  flex items-center justify-center bg-[#313640] rounded-[30px] relative"
+      className="w-[48%] h-48 mb-5  flex items-center justify-center bg-[#313640] rounded-[30px] relative"
     >
       <View
         className="h-20 w-20 rounded-full  absolute right-[-5] top-[-5] border-4 flex items-center justify-center  border-[#21242C]"

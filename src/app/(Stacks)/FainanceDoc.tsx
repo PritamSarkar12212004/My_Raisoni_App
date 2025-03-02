@@ -21,11 +21,11 @@ const FinanceItem = ({ item, fuctiuon, loading }: any) => (
     className="w-full h-52 relative py-4 px-4 flex gap-2 rounded-3xl mb-4"
     style={{
       backgroundColor:
-        item.paymentType === "ONLINE_PAYMENT" ? "#DD87B0" : "#9CACFF",
+        item.paymentType === "ONLINE_PAYMENT" ? "#474F7A" : "#9CACFF",
     }}
   >
     <View className="flex-row justify-between">
-      <Text className="text-2xl text-zinc-800 font-bold">
+      <Text className="text-2xl text-zinc-200 font-bold">
         {item.paymentType}
       </Text>
       <Text className="text-xl text-zinc-800 font-bold underline">

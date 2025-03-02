@@ -8,7 +8,6 @@ import AxiosInstance from "../utils/axios/AxiosInstance";
 
 const index = () => {
   const router = useRouter();
-
   const mainCheker = () => {
     AxiosInstance.post("/helper/maintanence")
       .then((res) => {

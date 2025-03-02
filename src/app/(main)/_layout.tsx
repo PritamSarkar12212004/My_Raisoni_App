@@ -3,6 +3,7 @@ import { Tabs } from "expo-router";
 import { StatusBar, StyleSheet, View } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 const _layout = () => {
   return (
     <>
@@ -23,7 +24,24 @@ const _layout = () => {
                 <View className="h-10 w-10 flex items-center justify-center">
                   <Entypo
                     name="home"
-                    size={35}
+                    size={30}
+                    color={focused ? "#A294F9" : "gray"}
+                  />
+                </View>
+              );
+            },
+          }}
+        />
+        <Tabs.Screen
+          name="ICardGenarator"
+          options={{
+            title: "card",
+            tabBarIcon({ focused }) {
+              return (
+                <View className="h-10 w-10 flex items-center justify-center">
+                  <FontAwesome6
+                    name="id-card-clip"
+                    size={30}
                     color={focused ? "#A294F9" : "gray"}
                   />
                 </View>

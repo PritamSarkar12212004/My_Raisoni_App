@@ -5,7 +5,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 const NotificationHeader = ({ title }: any) => {
   const navigation = useNavigation();
   return (
-    <View className="w-full flex-row items-center justify-between py-2 ">
+    <View className="w-full flex-row items-center justify-between pb-2 ">
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => navigation.goBack()}

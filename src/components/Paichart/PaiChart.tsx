@@ -5,7 +5,7 @@ import React from "react";
 
 const PaiChart = ({ init, fainal }: any) => {
   const pieData = [
-    { value: init-fainal, color: "#F93827" },
+    { value: init - fainal, color: "black" },
     { value: fainal, color: "#16C47F" },
   ];
 
@@ -14,16 +14,14 @@ const PaiChart = ({ init, fainal }: any) => {
       <PieChart
         data={pieData}
         donut
-        radius={80}
-        innerRadius={50}
-        shadowWidth={10}
+        radius={50}
+        innerRadius={40}
         showGradient
         showTooltip
         centerLabelComponent={() => {
           return (
-            <View className="flex items-center justify-center ">
-              <Text style={{ fontSize: 30 }}>{fainal}%</Text>
-              <Text className="text-lg font-semibold">Present</Text>
+            <View className="flex items-center justify-center  ">
+              <Text className="text-3xl">{fainal}%</Text>
             </View>
           );
         }}

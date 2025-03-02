@@ -48,8 +48,6 @@ export const ContextProvider = ({ children }: any) => {
   const [maincardValue, setmaincardValue] = useState(null);
   const [imagecardValue, setimagecardValue] = useState(null);
 
-  // modal
-  const [isModalVisible, setModalVisible] = useState(false);
   return (
     <Context.Provider
       value={{
@@ -101,8 +99,6 @@ export const ContextProvider = ({ children }: any) => {
         setmaincardValue,
         imagecardValue,
         setimagecardValue,
-        isModalVisible,
-        setModalVisible,
       }}
     >
       {children}

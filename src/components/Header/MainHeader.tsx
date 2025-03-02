@@ -6,19 +6,14 @@ import { userContext } from "@/src/context/ContextApi";
 import { useRouter } from "expo-router";
 
 const MainHeader = () => {
-  const { userDetails, profileImage, isModalVisible, setModalVisible } =
-    userContext();
+  const { userDetails, profileImage } = userContext();
 
-  const togalButton = () => {
-    setModalVisible(!isModalVisible);
-  };
   const router = useRouter();
   return (
     <View className="w-full flex items-center justify-between flex-row pb-2">
       <TouchableOpacity
         className="flex-row items-center justify-center gap-4"
         activeOpacity={0.8}
-        onPress={togalButton}
       >
         <View className="">
           <Image
