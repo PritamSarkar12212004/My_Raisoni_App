@@ -4,9 +4,8 @@ import { View, Text } from "react-native";
 import React from "react";
 
 const PaiChart2 = ({ init, fainal, title }: any) => {
-  const fainalcgpa = init - fainal;
   const pieData = [
-    { value: fainalcgpa, color: "black" },
+    { value: init - fainal, color: "black" },
     { value: fainal, color: "#E4B324" },
   ];
 

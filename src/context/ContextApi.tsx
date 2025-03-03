@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext,  useState } from "react";
 const Context = createContext();
 export const ContextProvider = ({ children }: any) => {
   const [loader, setloader] = useState(false);
@@ -47,6 +47,10 @@ export const ContextProvider = ({ children }: any) => {
   const [pdfValue, setpdfValue] = useState(null);
   const [maincardValue, setmaincardValue] = useState(null);
   const [imagecardValue, setimagecardValue] = useState(null);
+
+  //exam score detiles
+
+  const [examScore, setexamScore] = useState(null);
 
   return (
     <Context.Provider
@@ -99,6 +103,8 @@ export const ContextProvider = ({ children }: any) => {
         setmaincardValue,
         imagecardValue,
         setimagecardValue,
+        examScore,
+        setexamScore,
       }}
     >
       {children}

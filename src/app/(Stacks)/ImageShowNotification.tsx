@@ -2,7 +2,6 @@ import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import NotificationHeader from "@/src/components/Head/NotificationHeader";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { userContext } from "@/src/context/ContextApi";
 import ImageView from "react-native-image-viewing";
 

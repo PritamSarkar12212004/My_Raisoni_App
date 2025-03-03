@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 import Header from "@/src/components/main/header/Header";
 import Feather from "@expo/vector-icons/Feather";
@@ -17,12 +17,14 @@ import MainScroeCard from "@/src/components/card/main/MainScroeCard";
 import CgpaCard from "@/src/components/card/main/CgpaCard";
 import ReviewCard from "@/src/components/card/main/ReviewCard";
 import ReviewCardData from "@/src/demo/ReviewCardData";
+import useLogout from "@/src/hooks/useLogout";
 
 const index = () => {
   const { setheaderName } = userContext();
   const { ApicallAttendance } = usettendanceCall();
   const { ApiStudentFeesCall } = useStudentFeesCall();
   const { ApiTimeTableCall } = useTitmeTableCall();
+  const { Logout } = useLogout();
   useEffect(() => {
     ApicallAttendance();
     ApiTimeTableCall();
@@ -46,10 +48,19 @@ const index = () => {
         <View className="flex-1 w-full flex mt-3">
           <CgpaCard />
         </View>
-        <View className="w-full flex-row items-center px-2 mt-5  justify-between flex-wrap mb-56">
+        <View className="w-full flex-row items-center px-2 mt-5  justify-between flex-wrap ">
           {ReviewCardData.map((item, index) => (
             <ReviewCard key={index} item={item} />
           ))}
+        </View>
+        <View className="w-full flex items-center justify-center px-10">
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => Logout()}
+            className="w-full mb-56 mt-10 bg-red-500 flex py-4 rounded-full items-center  justify-center"
+          >
+            <Text className="text-2xl font-semibold text-white">Logout</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </MainScreenWraper>

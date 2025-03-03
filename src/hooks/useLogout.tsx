@@ -14,6 +14,7 @@ const useLogout = () => {
     setuserDetails,
     setid,
     setpass,
+    setexamScore,
   } = userContext();
   const router = useRouter();
   const Logout = async () => {
@@ -30,6 +31,7 @@ const useLogout = () => {
     setuserDetails(null);
     setid("");
     setpass("");
+    setexamScore(null);
 
     router.replace("/(auth)");
   };

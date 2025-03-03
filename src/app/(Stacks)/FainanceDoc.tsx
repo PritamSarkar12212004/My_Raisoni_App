@@ -28,13 +28,13 @@ const FinanceItem = ({ item, fuctiuon, loading }: any) => (
       <Text className="text-2xl text-zinc-200 font-bold">
         {item.paymentType}
       </Text>
-      <Text className="text-xl text-zinc-800 font-bold underline">
+      <Text className="text-xl text-black font-bold underline">
         {item.paymentDate}
       </Text>
     </View>
     <View className="w-full flex-row items-center justify-between">
       <View>
-        <Text className="text-3xl font-extrabold tracking-widest">
+        <Text className="text-3xl font-extrabold text-white tracking-widest">
           Amount: ₹ {item.totalCollectedAmt}
         </Text>
         <Text className="text-lg text-white">
