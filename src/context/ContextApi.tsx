@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { createContext, useContext,  useState } from "react";
+import { createContext, useContext, useState } from "react";
 const Context = createContext();
 export const ContextProvider = ({ children }: any) => {
   const [loader, setloader] = useState(false);
@@ -18,7 +18,7 @@ export const ContextProvider = ({ children }: any) => {
   const [userDetails, setuserDetails] = useState(null);
 
   // global token
-  const [globaltoken, setglobaltoken] = useState(null);
+  const [globaltoken, setglobaltoken] = useState("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJHSFJVQTIzMDExMTQwNjI5IiwiaXNzIjoiaHR0cHM6Ly93d3cuY3liZXJ2aWR5YS5uZXQvIiwiYXV0aE9iaiI6IntcInBhc3N3b3JkXCI6XCJcIixcInVzZXJOYW1lXCI6XCJHSFJVQTIzMDExMTQwNjI5XCIsXCJmb3JjZVBhc3NVcGRhdGVGbGFnXCI6ZmFsc2UsXCJyb2xlSWRzXCI6WzJdLFwidXNlclR5cGVcIjpcIlNUVURFTlRcIixcImFjY2Vzc0NvbnRyb2xzXCI6W119Iiwic2NvcGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1NUVURFTlQifV0sImV4cCI6MTc0MjUyNjUxMiwiaWF0IjoxNzQyNTA4NTEyLCJ1c2VybmFtZSI6IkdIUlVBMjMwMTExNDA2MjkifQ.ZBZigN2L0-d9S3AgICTXofh7I2AxbbsxUVlMC63uqnMrl3KGEtK-htSOXKf8c7DPc1k8l0utIW53TfYbX0DHvQ");
   const [globaluid, setglobaluid] = useState(null);
 
   // userData
