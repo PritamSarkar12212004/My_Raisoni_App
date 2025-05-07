@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
 import Animation from "@/src/constants/Animation";
 import { useRouter } from "expo-router";

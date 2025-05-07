@@ -1,16 +1,10 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
-import Header from "@/src/components/main/header/Header";
-import Feather from "@expo/vector-icons/Feather";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { userContext } from "@/src/context/ContextApi";
-import PaiChart2 from "@/src/components/Paichart/PaiChart2";
 import usettendanceCall from "@/src/hooks/usettendanceCall";
 import useTitmeTableCall from "@/src/hooks/useTitmeTableCall";
 import useStudentFeesCall from "@/src/hooks/useStudentFeesCall";
 import { useFocusEffect } from "expo-router";
-import LottiAnimation from "@/src/components/combaine/lottiAnimation/LottiAnimation";
-import Animation from "@/src/constants/Animation";
 import MainHeader from "@/src/components/Header/MainHeader";
 import MainScreenWraper from "@/src/components/wrapermain/MainScreenWraper";
 import MainScroeCard from "@/src/components/card/main/MainScroeCard";
