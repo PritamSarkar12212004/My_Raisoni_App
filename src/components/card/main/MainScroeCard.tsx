@@ -6,6 +6,7 @@ import { useRouter } from "expo-router";
 
 const MainScroeCard = () => {
   const { attendanceDataMain } = userContext();
+  console.log(attendanceDataMain);
   const router = useRouter();
   return (
     <TouchableOpacity
@@ -21,7 +22,7 @@ const MainScroeCard = () => {
         <PaiChart2
           title="Present"
           init={100}
-          fainal={parseFloat(attendanceDataMain.presentPerc)}
+          fainal={parseFloat(attendanceDataMain?.presentPerc ? attendanceDataMain?.presentPerc : 0)}
         />
       </View>
     </TouchableOpacity>

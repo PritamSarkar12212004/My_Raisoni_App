@@ -14,6 +14,7 @@ const _layout = () => {
           tabBarStyle: styles.tabBarStyle,
           tabBarShowLabel: false,
         }}
+
       >
         <Tabs.Screen
           name="index"

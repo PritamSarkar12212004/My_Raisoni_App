@@ -21,8 +21,8 @@ const useMainDataCall = () => {
       data: res.data.data,
     })
       .then((res) => {
-        console.log(res.data.data.studentAddress);
-        setattendanceDataMain(res.data.data.attandance.data);
+        setattendanceDataMain(res.data.data.attandance);
+        console.log(res.data.data.attandance);
         setprofileImage(res.data.data.image); // Set Base64 image
 
         setcastAndReligion(

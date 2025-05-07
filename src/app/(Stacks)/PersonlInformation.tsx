@@ -22,7 +22,7 @@ const PersonlInformation = () => {
           <View className="w-full flex items-center justify-center">
             <Image
               source={{
-                uri: profileImage,
+                uri: profileImage ? profileImage : "https://i.pinimg.com/736x/44/95/12/4495124f97de536535464aa6558b4452.jpg",
               }}
               className="h-56 w-56 rounded-3xl"
               resizeMode="cover"

@@ -28,7 +28,7 @@ const index = () => {
   useEffect(() => {
     ApicallAttendance();
     ApiTimeTableCall();
-    ApiStudentFeesCall();
+    // ApiStudentFeesCall();
   }, []);
   useFocusEffect(
     React.useCallback(() => {
