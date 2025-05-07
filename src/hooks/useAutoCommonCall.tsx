@@ -16,15 +16,16 @@ const useAutoCommonCall = () => {
       console.log(error);
     }
   };
-  const AuthKeyFinderAuto = ({ id, pass, apiCall }: any) => {
+  const AuthKeyFinderAuto = async ({ id, pass, apiCall }: any) => {
     setloader(true);
-    axios
+    await axios
       .post("https://ghrua.cybervidya.net/api/auth/login", {
         password: pass,
         reCaptchaToken: AuthConatant.reCaptchaToken,
         userName: id,
       })
       .then((res) => {
+        console.log(res.data.data);
         apiCall(res);
         setglobaltoken(res.data.data.token ? res.data.data.token : null);
         setglobaluid(res.data.data.id ? res.data.data.id : null);

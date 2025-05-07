@@ -8,6 +8,17 @@ import AxiosInstance from "../utils/axios/AxiosInstance";
 
 const index = () => {
   const router = useRouter();
+  const cheker = async () => {
+    const token = await AsyncStorage.getItem("userToken");
+    const tokenId = await AsyncStorage.getItem("userId");
+    const tokenPass = await AsyncStorage.getItem("userPass");
+    if (JSON.parse(token) && JSON.parse(tokenId) && JSON.parse(tokenPass)) {
+   
+      router.replace("/(auth)/AutoLoager");
+    } else {
+      router.replace("/(spalash)");
+    }
+  };
   const mainCheker = () => {
     AxiosInstance.post("/helper/maintanence")
       .then((res) => {
@@ -22,16 +33,7 @@ const index = () => {
       });
   };
 
-  const cheker = async () => {
-    const token = await AsyncStorage.getItem("userToken");
-    const tokenId = await AsyncStorage.getItem("userId");
-    const tokenPass = await AsyncStorage.getItem("userPass");
-    if (JSON.parse(token) && JSON.parse(tokenId) && JSON.parse(tokenPass)) {
-      router.replace("/(auth)/AutoLoager");
-    } else {
-      router.replace("/(spalash)");
-    }
-  };
+
 
   useEffect(() => {
     mainCheker();
