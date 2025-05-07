@@ -3,16 +3,30 @@ import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import NotificationHeader from "@/src/components/Head/NotificationHeader";
 import { userContext } from "@/src/context/ContextApi";
-import ImageView from "react-native-image-viewing";
+import ImageViewing from "@/src/components/ImageViewing";
+
+interface ImageCardValue {
+  images: string[];
+  title: string;
+  description: string;
+  pdf?: string;
+}
+
+interface ImageItem {
+  uri: string;
+}
 
 const ImageShowNotification = () => {
-  const { imagecardValue, setimagecardValue } = userContext();
+  const { imagecardValue, setimagecardValue } = userContext() as {
+    imagecardValue: ImageCardValue | null;
+    setimagecardValue: (value: ImageCardValue | null) => void;
+  };
   const [visible, setIsVisible] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
 
   // Ensure imagecardValue is not null before accessing images
   const images = imagecardValue?.images
-    ? imagecardValue.images.map((item) => ({ uri: item }))
+    ? imagecardValue.images.map((item: string) => ({ uri: item }))
     : [];
 
   useEffect(() => {
@@ -28,11 +42,12 @@ const ImageShowNotification = () => {
     >
       {/* Image Viewer */}
       {images.length > 0 && (
-        <ImageView
+        <ImageViewing
           images={images}
           imageIndex={imgIndex}
           visible={visible}
           onRequestClose={() => setIsVisible(false)}
+          onImageIndexChange={setImgIndex}
         />
       )}
 
@@ -40,7 +55,7 @@ const ImageShowNotification = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View className="w-full px-4 flex items-center justify-center mt-5 mb-40">
             {/* Display Images */}
-            {images.map((image, index) => (
+            {images.map((image: ImageItem, index: number) => (
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => {

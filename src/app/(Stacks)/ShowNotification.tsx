@@ -14,17 +14,28 @@ import { userContext } from "@/src/context/ContextApi";
 import { Feather } from "@expo/vector-icons";
 import * as FileSystem from "expo-file-system";
 import * as Sharing from "expo-sharing";
-import ImageView from "react-native-image-viewing";
+import ImageViewing from "@/src/components/ImageViewing";
+
+interface MainCardValue {
+  images?: string[];
+  title?: string;
+  description?: string;
+  pdf?: string;
+  start_date?: string;
+  end_date?: string;
+}
 
 const ShowNotification = () => {
-  const { maincardValue } = userContext();
+  const { maincardValue } = userContext() as {
+    maincardValue: MainCardValue | null;
+  };
 
   const images = maincardValue?.images
-    ? maincardValue.images.map((item) => ({ uri: item }))
+    ? maincardValue.images.map((item: string) => ({ uri: item }))
     : [];
 
   const [visible, setIsVisible] = useState(false);
-  const [imeIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
   const [loading, setLoading] = useState(false);
 
   // Handle PDF Download
@@ -57,11 +68,12 @@ const ShowNotification = () => {
       style={{ flex: 1, width: "100%", height: "100%" }}
     >
         <NotificationHeader />
-        <ImageView
+        <ImageViewing
           images={images}
-          imageIndex={imeIndex}
+          imageIndex={imageIndex}
           visible={visible}
           onRequestClose={() => setIsVisible(false)}
+          onImageIndexChange={setImageIndex}
         />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View className="w-full px-4 flex items-center justify-center mt-5 mb-36">

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Image, StyleSheet, Modal, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, Modal, TouchableOpacity, Dimensions } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 interface ImageViewingProps {
   images: { uri: string }[];
@@ -8,6 +9,8 @@ interface ImageViewingProps {
   onRequestClose: () => void;
   onImageIndexChange?: (index: number) => void;
 }
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const ImageViewing: React.FC<ImageViewingProps> = ({
   images,
@@ -22,7 +25,7 @@ const ImageViewing: React.FC<ImageViewingProps> = ({
     <Modal visible={visible} transparent={true} onRequestClose={onRequestClose}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.closeButton} onPress={onRequestClose}>
-          <View style={styles.closeButtonInner} />
+          <Ionicons name="close" size={30} color="white" />
         </TouchableOpacity>
         <Image
           source={{ uri: images[imageIndex].uri }}
@@ -32,15 +35,19 @@ const ImageViewing: React.FC<ImageViewingProps> = ({
         {images.length > 1 && (
           <View style={styles.navigationButtons}>
             <TouchableOpacity
-              style={styles.navButton}
+              style={[styles.navButton, imageIndex === 0 && styles.navButtonDisabled]}
               onPress={() => onImageIndexChange?.(Math.max(0, imageIndex - 1))}
               disabled={imageIndex === 0}
-            />
+            >
+              <Ionicons name="chevron-back" size={24} color="white" />
+            </TouchableOpacity>
             <TouchableOpacity
-              style={styles.navButton}
+              style={[styles.navButton, imageIndex === images.length - 1 && styles.navButtonDisabled]}
               onPress={() => onImageIndexChange?.(Math.min(images.length - 1, imageIndex + 1))}
               disabled={imageIndex === images.length - 1}
-            />
+            >
+              <Ionicons name="chevron-forward" size={24} color="white" />
+            </TouchableOpacity>
           </View>
         )}
       </View>
@@ -56,26 +63,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: SCREEN_WIDTH,
+    height: SCREEN_HEIGHT,
   },
   closeButton: {
     position: 'absolute',
     top: 40,
     right: 20,
     zIndex: 1,
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonInner: {
-    width: 20,
-    height: 2,
-    backgroundColor: 'white',
-    transform: [{ rotate: '45deg' }],
+    padding: 10,
   },
   navigationButtons: {
     position: 'absolute',
@@ -90,6 +86,11 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  navButtonDisabled: {
+    opacity: 0.5,
   },
 });
 
