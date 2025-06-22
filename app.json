@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.pritam_sarkar.MyRaisoni"
+      "package": "com.pritam_sarkar.MyRaisoni_Cybervidya_Amravati"
     },
     "web": {
       "bundler": "metro",
